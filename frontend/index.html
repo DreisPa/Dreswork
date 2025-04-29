@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дрегворк</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .expandable {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #ccc;
+            margin-top: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .expandable.show {
+            max-height: 500px; /* Максимальная высота во время раскрытия */
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .input-field {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Дрегворк</h1>
+    <button class="button" id="toggle-button">Начать</button>
+    <div class="expandable" id="registration-form">
+        <input type="text" class="input-field" placeholder="Имя" required>
+        <input type="email" class="input-field" placeholder="Электронная почта" required>
+        <input type="password" class="input-field" placeholder="Пароль" required>
+        <input type="password" class="input-field" placeholder="Подтвердите пароль" required>
+    </div>
+</div>
+
+<script>
+    const button = document.getElementById('toggle-button');
+    const form = document.getElementById('registration-form');
+
+    button.addEventListener('click', () => {
+        form.classList.toggle('show');
+        button.textContent = form.classList.contains('show') ? 'Скрыть' : 'Начать';
+    });
+</script>
+
+</body>
+</html>
 
